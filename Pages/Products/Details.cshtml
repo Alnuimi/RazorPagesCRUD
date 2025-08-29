@@ -1,0 +1,27 @@
+﻿@page "{id:guid}"
+@model RazorPagesCRUD.Pages.Products.DetailsModel
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h2>@Model.Product?.Name</h2>
+    </div>
+    <div class="card-body">
+        <d1 class="row">
+            <dt class="col-sm-3">Name</dt>
+            <dd class="col-sm-9">@Model.Product?.Name</dd>
+
+            <dt class="col-sm-3">Price</dt>
+            <dd class="col-sm-9">@Model.Product?.Price.ToString("C")</dd>
+
+            <dt class="col-sm-3">Description</dt>
+            <dd class="col-sm-9">@Model.Product?.Description</dd>
+        </d1>
+       
+        <a asp-page="/Products/Index" class="btn btn-secondary">Back to List</a>
+        <a asp-page="/Products/Edit" asp-route-id="@Model.Product?.Id" class="btn btn-primary">Edit</a>
+        <a asp-page="/Products/Delete" asp-route-id="@Model.Product?.Id" class="btn btn-danger">Delete</a>
+    </div>
+</div>
